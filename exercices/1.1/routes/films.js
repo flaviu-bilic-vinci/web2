@@ -31,8 +31,7 @@ MOVIES.push(film1,film2,film3);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    
-  res.json(MOVIES);
+    res.json(MOVIES);
 });
 
 module.exports = router;
