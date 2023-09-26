@@ -1,0 +1,12 @@
+@baseUrl = http://localhost:3000
+
+### Create a film
+POST {{baseUrl}}/films
+Content-Type: application/json
+
+{
+    "title":"I HATE JAVASCRIPT FROM THE BOTTOM OF MY HEART, GIVE ME PLAIN JAVA PLS SEND HELP",
+    "duration":"120",
+    "budget":"0",
+    "link":"https://e-vinci.github.io/web2/"
+}
