@@ -48,13 +48,46 @@ router.get('/', function(req, res, next) {
 
 
 //READ ONE
-router.get('/readOne', (req, res, next) => {
-    return;
+router.get('/:id', (req, res, next) => {
+
+    let id = req.params.id;
+    console.log("Verification de l'id: "+ id + "\n");
+
+    if (id != undefined) {
+        id = parseInt(id);
+        if(id < 1 || id > MOVIES.length){
+            return res.json("ID too big or too small, the ID starts from "+ 1 + " to "+MOVIES.length);
+        }
+        return res.json(MOVIES[id-1]);
+    }
+    return res.json("ID not found");
+
 })
 
 //CREATE ONE
-router.post('/createOne', (req, res, next) => {
-    return;
+router.post('/', (req, res, next) => {
+
+    let title = req.body.title;
+    let duration = req.body.duration;
+    let budget = req.body.budget;
+    let link = req.body.link;
+
+    if (budget < 0 || duration < 0) return res.json("budget ou durée negative");
+
+    if (!title || !duration || !budget || !link) return res.sendStatus(400); //bad request
+
+    let lastItemIndex = MOVIES.length-1;
+
+    const newFilm = {
+        id: MOVIES[lastItemIndex].id+1,
+        title: title,
+        duration: duration,
+        budget: budget,
+        link: link
+    };
+    MOVIES.push(newFilm);
+
+    return res.json(newFilm);
 })
 
 module.exports = router;
