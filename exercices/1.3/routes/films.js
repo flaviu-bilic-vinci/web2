@@ -74,7 +74,7 @@ router.post('/', (req, res, next) => {
 
     if (budget < 0 || duration < 0) return res.json("budget ou durée negative");
 
-    if (!title || !duration || !budget || !link) return res.sendStatus(400); //bad request
+    if (!title || !duration || !budget || !link) return res.sendStatus(418); //bad request 400
 
     let lastItemIndex = MOVIES.length-1;
 
