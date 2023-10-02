@@ -4,16 +4,19 @@
 ### Get all films
 GET {{baseUrl}}/films
 
+### Get all films with min duration
+GET {{baseUrl}}/films?minimum-duration=abc
+
 ### GET one film
-GET {{baseUrl}}/films/4
+GET {{baseUrl}}/films/2
 
 ### Create a film
 POST {{baseUrl}}/films
 Content-Type: application/json
 
 {
-    "title":"I HATE JAVASCRIPT FROM THE BOTTOM OF MY HEART, GIVE ME PLAIN JAVA PLS SEND HELP",
+    "title":"placeholderTitle9",
     "duration":"120",
-    "budget":"0",
+    "budget":"10",
     "link":"https://e-vinci.github.io/web2/"
 }

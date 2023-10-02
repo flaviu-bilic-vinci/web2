@@ -36,6 +36,15 @@ router.get('/', function(req, res, next) {
         const FILTERED_MOVIES =[];
         let minDurationValue = req.query['minimum-duration'];
 
+        minDurationValue = parseInt(minDurationValue);
+
+        if(Number.isInteger(minDurationValue)){
+            console.log("Number is an integer: "+minDurationValue);
+        }else{
+            console.log("Number is not an integer: "+minDurationValue);
+            return res.sendStatus(400);
+        }
+
         for (any of MOVIES){
             if (any.duration >= minDurationValue) FILTERED_MOVIES.push(any);
         };
@@ -56,6 +65,7 @@ router.get('/:id', (req, res, next) => {
     if (id != undefined) {
         id = parseInt(id);
         if(id < 1 || id > MOVIES.length){
+            return res.sendStatus(418); //bad request 400
             return res.json("ID too big or too small, the ID starts from "+ 1 + " to "+MOVIES.length);
         }
         return res.json(MOVIES[id-1]);
@@ -77,6 +87,10 @@ router.post('/', (req, res, next) => {
     if (!title || !duration || !budget || !link) return res.sendStatus(418); //bad request 400
 
     let lastItemIndex = MOVIES.length-1;
+
+    for (any of MOVIES){
+        if (any.title === title) return res.sendStatus(409);
+    };
 
     const newFilm = {
         id: MOVIES[lastItemIndex].id+1,
