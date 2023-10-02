@@ -104,4 +104,23 @@ router.post('/', (req, res, next) => {
     return res.json(newFilm);
 })
 
+router.delete('/:id',(req, res, next) => {
+    console.log(`DELETE /films/${req.params.id}`);
+    let idToDelete = req.params.id;
+    idToDelete = parseInt(req.params.id);
+
+    console.log(idToDelete);
+
+
+    if (Number.isInteger(idToDelete) && idToDelete >= 1){
+        let idInTableValue = MOVIES.findIndex(movie => movie.id === idToDelete);
+        if(idInTableValue !== undefined){
+            MOVIES.splice(idInTableValue,1);
+        }
+    }else{
+        res.sendStatus(400);
+    }
+
+});
+
 module.exports = router;
