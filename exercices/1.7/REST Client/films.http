@@ -1,0 +1,85 @@
+@baseUrl = http://localhost:3000
+
+
+### Get all films
+GET {{baseUrl}}/films
+
+### Get all films with min duration
+GET {{baseUrl}}/films?minimum-duration=abc
+
+### GET one film
+GET {{baseUrl}}/films/2
+
+### Create a film
+POST {{baseUrl}}/films
+Content-Type: application/json
+
+{
+    "title":"placeholderTitle9",
+    "duration":"120",
+    "budget":"10",
+    "link":"https://e-vinci.github.io/web2/"
+}
+
+### Delete a film
+DELETE {{baseUrl}}/films/2
+
+### Patch a film
+PATCH {{baseUrl}}/films/3
+Content-Type: application/json
+
+{
+    "title":"placeholderTitleUPDATED_TITLE",
+    "duration":"160",
+    "budget":"500",
+    "link":"https://e-vinci.github.io/web2/"
+}
+
+### Patch a film almost empty data
+PATCH {{baseUrl}}/films/3
+Content-Type: application/json
+
+{
+    "link":"https://e-vinci.github.io/web2/baba"
+}
+
+### Patch a film empty data
+PATCH {{baseUrl}}/films/3
+Content-Type: application/json
+
+{
+
+}
+
+### Patch a film with wrong numbers
+PATCH {{baseUrl}}/films/3
+Content-Type: application/json
+
+{
+    "title":"placeholderTitleUPDATED_TITLE",
+    "duration":"abracada",
+    "budget":"idkaman",
+    "link":"https://e-vinci.github.io/web2/"
+}
+
+### Put a new movie
+PUT {{baseUrl}}/films/45
+Content-Type: application/json
+
+{
+    "title":"placeholderTitlePUT_TITLE",
+    "duration":"90",
+    "budget":"20",
+    "link":"https://e-vinci.github.io/web2/"
+}
+
+### Put and update a existing movie
+PUT {{baseUrl}}/films/4
+Content-Type: application/json
+
+{
+    "title":"placeholderTitlePUT_TITLE",
+    "duration":"100",
+    "budget":"20",
+    "link":"https://e-vinci.github.io/web2/"
+}
