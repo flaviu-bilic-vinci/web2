@@ -114,13 +114,96 @@ router.delete('/:id',(req, res, next) => {
 
     if (Number.isInteger(idToDelete) && idToDelete >= 1){
         let idInTableValue = MOVIES.findIndex(movie => movie.id === idToDelete);
-        if(idInTableValue !== undefined){
+
+        if(idInTableValue !== undefined && idInTableValue != -1){
             MOVIES.splice(idInTableValue,1);
+        }else{
+            res.sendStatus(400);
         }
     }else{
         res.sendStatus(400);
     }
 
+});
+
+router.patch('/:id',(req,res,next) => {
+    
+    console.log("This is a patch, we went patching today")
+
+    let idToPatch = req.params.id;
+    idToPatch = parseInt(req.params.id);
+
+    console.log(idToPatch);
+
+    if(!Number.isInteger(idToPatch)) return res.sendStatus(400);
+    if(idToPatch < 1) return res.sendStatus(400);
+
+    let title = req.body.title;
+    let duration = req.body.duration;
+    let budget = req.body.budget;
+    let link = req.body.link;
+
+    if (title === undefined && duration === undefined && budget === undefined && link === undefined) res.sendStatus(400);
+    
+    console.log("Duration: "+duration);
+    console.log("Budget: "+budget);
+    
+    let idInTableValue = MOVIES.findIndex(movie => movie.id === idToPatch);
+    if(idInTableValue === -1) return res.sendStatus(400);
+
+    movieToPatch = MOVIES[idInTableValue];
+
+    if(title !== undefined) movieToPatch.title = title;
+    if(duration !== undefined){
+        if(isNaN(parseInt(duration))) return res.sendStatus(400);
+        movieToPatch.duration = duration;
+    } 
+    if(budget !== undefined){
+        if(isNaN(parseInt(budget))) return res.sendStatus(400);
+        movieToPatch.budget = budget;
+    } 
+    if(link !== undefined) movieToPatch.link = link;
+});
+
+router.put('/:id',(req,res,next) => {
+    
+    console.log("This is a put, we went puting today");
+
+    let idToPatch = req.params.id;
+    idToPatch = parseInt(req.params.id);
+
+    console.log(idToPatch);
+
+    if(!Number.isInteger(idToPatch)) return res.sendStatus(400);
+    if(idToPatch < 1) return res.sendStatus(400);
+
+    let title = req.body.title;
+    let duration = req.body.duration;
+    let budget = req.body.budget;
+    let link = req.body.link;
+
+    if (title !== undefined && duration !== undefined && budget !== undefined && link !== undefined){
+        console.log("Duration: "+duration);
+        console.log("Budget: "+budget);
+        
+        let idInTableValue = MOVIES.findIndex(movie => movie.id === idToPatch);
+        if(idInTableValue === -1) return res.sendStatus(400);
+
+        movieToPatch = MOVIES[idInTableValue];
+
+        if(title !== undefined) movieToPatch.title = title;
+        if(duration !== undefined){
+            if(isNaN(parseInt(duration))) return res.sendStatus(400);
+            movieToPatch.duration = duration;
+        } 
+        if(budget !== undefined){
+            if(isNaN(parseInt(budget))) return res.sendStatus(400);
+            movieToPatch.budget = budget;
+        } 
+        if(link !== undefined) movieToPatch.link = link;
+    };
+
+    
 });
 
 module.exports = router;

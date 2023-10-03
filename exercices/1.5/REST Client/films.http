@@ -23,3 +23,41 @@ Content-Type: application/json
 
 ### Delete a film
 DELETE {{baseUrl}}/films/2
+
+### Patch a film
+PATCH {{baseUrl}}/films/3
+Content-Type: application/json
+
+{
+    "title":"placeholderTitleUPDATED_TITLE",
+    "duration":"160",
+    "budget":"500",
+    "link":"https://e-vinci.github.io/web2/"
+}
+
+### Patch a film almost empty data
+PATCH {{baseUrl}}/films/3
+Content-Type: application/json
+
+{
+    "link":"https://e-vinci.github.io/web2/baba"
+}
+
+### Patch a film empty data
+PATCH {{baseUrl}}/films/3
+Content-Type: application/json
+
+{
+
+}
+
+### Patch a film with wrong numbers
+PATCH {{baseUrl}}/films/3
+Content-Type: application/json
+
+{
+    "title":"placeholderTitleUPDATED_TITLE",
+    "duration":"abracada",
+    "budget":"idkaman",
+    "link":"https://e-vinci.github.io/web2/"
+}
