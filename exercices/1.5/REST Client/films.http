@@ -61,3 +61,25 @@ Content-Type: application/json
     "budget":"idkaman",
     "link":"https://e-vinci.github.io/web2/"
 }
+
+### Put a new movie
+PUT {{baseUrl}}/films/45
+Content-Type: application/json
+
+{
+    "title":"placeholderTitlePUT_TITLE",
+    "duration":"90",
+    "budget":"20",
+    "link":"https://e-vinci.github.io/web2/"
+}
+
+### Put and update a existing movie
+PUT {{baseUrl}}/films/4
+Content-Type: application/json
+
+{
+    "title":"placeholderTitlePUT_TITLE",
+    "duration":"100",
+    "budget":"20",
+    "link":"https://e-vinci.github.io/web2/"
+}
