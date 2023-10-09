@@ -1,0 +1,12 @@
+@baseUrl = http://localhost:3000
+
+### Create a film
+POST {{baseUrl}}/films
+Content-Type: application/json
+
+{
+    "title":"placeholderTitle_json",
+    "duration":"120",
+    "budget":"10",
+    "link":"https://e-vinci.github.io/web2/"
+}
