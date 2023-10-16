@@ -10,8 +10,9 @@ divs.forEach((div) => {
   });
 });
 
-// code to get the reference to the form shall be imagined
 
+
+// code to get the reference to the form shall be imagined
 const onSubmit = (e) => {
     console.log("onSubmit::");
     e.preventDefault();

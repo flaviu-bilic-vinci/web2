@@ -8,16 +8,18 @@
     <link rel="stylesheet" href="../public/style.css">
 
 <body>
-    <div class="form" id="msgbox">
+    <div class="formWrapper" id="msgbox">
         <h2>HTML Forms</h2>
-        <form action="/action_page.php">
-        <label for="wish">Write your wish down here:</label><br>
-        <input type="text" id="wish" name="wish" value="Your wish"><br><br>
-        <input type="submit" value="Submit">
+        <form>
+            <label for="wish">Write your wish down here:</label><br>
+            <input type="text" id="wish" name="wish" value=""><br><br>
+            <input type="submit" value="Submit">
         </form> 
     </div>
-    <div>
+    <div class="messageWish">
         <h2>The wish you had: </h2>
+        <p id="wishID"> No wish has been submited yet! </p>
     </div>
+    <script src="/exercices/2.3.1/javascript/index.js"></script>
 </body>
 </html>

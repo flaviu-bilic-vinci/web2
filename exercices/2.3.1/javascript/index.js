@@ -1,21 +1,10 @@
-const form = document.querySelectorAll(".form");
+const form = document.querySelector(".formWrapper");
+const message = document.querySelector(".messageWish");
 
-
-  form.addEventListener("submit", () => {
-    form.innerText = "Hello world!";
-  });
-
-  div.addEventListener("mouseout", (e) => {
-    div.innerText = `You have left the div wit id ${e.target.id}`;
-  });
-
-
-// code to get the reference to the form shall be imagined
-
-const onSubmit = (e) => {
-    console.log("onSubmit::");
-    e.preventDefault();
-  };
-  
-  myForm.addEventListener("submit", onSubmit);
-  
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log("here");
+  let wishFromForm = document.getElementById('wish').value;
+  document.getElementById('wishID').innerHTML = wishFromForm;
+  form.style.display = "none";
+});
