@@ -15,14 +15,17 @@ btn1.addEventListener("click",(event) =>{
     }
 
     clickCounter++;
+
+    if (clickCounter >= 10) {
+        clearTimeout(timeoutID);
+        msg1.innerHTML = `You win ! You clicked 10 times within ${delayInMs} ms`;
+    }
 });
 
 function timerStart(){
     timeoutID = setTimeout(() => {
-        if(clickCounter >= 10){
-            msg1.innerHTML = `You win ! You clicked 10 times within ${delayInMs} ms`;
-            clearTimeout(timeoutID);
-        }else{
+        
+        if (clickCounter < 10) {
             msg1.innerHTML = "Game over, you did not click 10 times within 5s!";
         }
 
