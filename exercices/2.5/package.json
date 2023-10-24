@@ -1,9 +1,9 @@
 {
-  "name": "myjscourse-webpack-boilerplate",
+  "name": "movies",
   "version": "1.0.0",
   "description": "web2 frontend boilerplate",
   "scripts": {
-    "dev": "webpack --mode development",
+    "dev": "Flaviu Bilic",
     "build": "webpack --mode production",
     "start": "webpack serve --mode development"
   },
