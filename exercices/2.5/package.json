@@ -1,11 +1,13 @@
 {
-  "name": "movies",
+  "name": "exercise-2.5",
   "version": "1.0.0",
-  "description": "web2 frontend boilerplate",
+  "description": "Exercice 2.5 : module bundler",
   "scripts": {
-    "dev": "Flaviu Bilic",
+    "dev": "webpack --mode development",
     "build": "webpack --mode production",
-    "start": "webpack serve --mode development"
+    "start": "webpack serve --mode development",
+    "code:fix": "prettier --write . && eslint --fix .",
+    "code": "eslint --fix ."
   },
   "author": "e-baron",
   "devDependencies": {
